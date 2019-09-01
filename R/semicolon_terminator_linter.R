@@ -17,8 +17,8 @@ semicolon_terminator_linter <- function(semicolon = c("compound", "trailing")) {
 
     Map(
       function(token, is_trailing) {
-        msg <- if (is_trailing) {
-          "Trailing semicolons are not needed."
+        msg <- if (!is_trailing) {
+          "Semicolons should terminate function calls."
         } else  {
           "Compound semicolons are not needed. Replace them by a newline."
         }
